@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 
@@ -10,6 +10,7 @@ export class AppService {
 
   async getHello() {
     const message = await firstValueFrom(this.client.send<string, string>('greeting-async', 'Progressive Coder'));
+    Logger.log('message sent to queue');
     return message;
   }
 }
