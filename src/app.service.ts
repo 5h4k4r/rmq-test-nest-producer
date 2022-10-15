@@ -10,7 +10,7 @@ export class AppService {
 
   async getHello() {
     const message = await firstValueFrom(this.client.send<string, string>('greeting-async', 'Progressive Coder'));
-    Logger.log('message sent to queue');
+    Logger.log('message \'Progressive Coder\' sent to queue');
     return message;
   }
 }
